@@ -1,0 +1,16 @@
+
+CREATE DATABASE IF NOT EXISTS tu_base_de_datos;
+
+USE tu_base_de_datos;
+
+-- Creación de la tabla 'usuarios'
+CREATE TABLE IF NOT EXISTS usuarios (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,  -- Identificador único, autoincrementable
+    name VARCHAR(255) NOT NULL,            -- Nombre del usuario
+    email VARCHAR(255) NOT NULL UNIQUE,    -- Correo electrónico, único
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Fecha de creación
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- Fecha de última actualización
+);
+
+-- Inserción de ejemplo de un usuario (opcional)
+INSERT INTO usuarios (name, email) VALUES ('Juan Pérez', 'juanperez@example.com');
